@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>This</title>
+</head>
+<body>
+    <h1>This is not confused anymore</h1>
+    <p onclick="this.innerText = 'click me'">i am paragraph, don't click me</p>
+    <script>
+        const myObj = {
+            name: 'yeaisn',
+            getName: function(){
+                console.log(this);
+                return 'Mr' + name;
+            }
+        }
+        const  anotherObj = {
+            name: 'Biddot Ali'
+
+        }
+        anotherObj.getName = myObj.getName;
+        console.log(anotherObj.getName);
+
+        myObj.getName();
+        anotherObj.getName();
+
+        function add(a, b){
+            console.log(this);
+            return a + b
+        }
+
+        add(5, 8);
+
+        anotherObj.sum = add;
+        myObj.sum = add;
+        myObj.sum();
+        anotherObj.sum();
+        
+    </script>
+</body>
+</html>
